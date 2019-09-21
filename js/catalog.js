@@ -30,7 +30,6 @@ function handleSubmit(event) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-  
 }
 
 // TODO: Add the selected item and quantity to the cart
@@ -38,11 +37,13 @@ function addSelectedItemToCart() {
   // suss out the item picked from the select list
   var itemSelected = selectEl.options[selectEl.selectedIndex].value;
   console.log('selected item ', itemSelected);
-  // TODO: get the quantity
+  // get the quantity
   var quantityEl = document.getElementById('quantity');
   var quantitySelected = quantityEl.value;
   console.log('quantityselected is ', quantitySelected);
   // TODO: using those, add one item to the Cart
+  cart.addItem(itemSelected, quantitySelected);
+  console.log('cart ', cart);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
