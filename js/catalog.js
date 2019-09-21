@@ -3,6 +3,8 @@
 'use strict';
 
 // Set up an empty cart for use on this page.
+var selectEl = document.getElementById('items');
+var optionEl;
 var cart = new Cart([]);
 
 // On screen load, we call this method to put all of the busmall options
@@ -10,11 +12,10 @@ var cart = new Cart([]);
 function populateForm() {
 
   //TODO: Add an <option> tag inside the form's select for each product
-  var selectElement = document.getElementById('items');
   for (var i in Product.allProducts) {
-    var optionEl = document.createElement('option');
+    optionEl = document.createElement('option');
     optionEl.textContent = Product.allProducts[i].name;
-    selectElement.appendChild(optionEl);
+    selectEl.appendChild(optionEl);
   }
 }
 
@@ -23,19 +24,20 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
   event.preventDefault();
-  // TODO: Prevent the page from reloading
 
   // Do all the things ...
   addSelectedItemToCart();
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-
+  
 }
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
+  var itemSelected = selectEl.options[selectEl.selectedIndex].value;
+  console.log('selected item ', itemSelected);
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
 }
