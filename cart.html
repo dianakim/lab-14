@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Bus Mall Store</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shoppingCart.css">
+  </head>
+  
+  <body>
+      <div class="navigation">
+          <div class="title">Bus Mall Cart</div>
+          <div class="shoppingCart">
+            <span>Cart: </span><span id="itemCount">0</span>
+          </div>
+        </div>
+    
+        <div class="productList"></div>
+    
+      </body>
+    <header>
+        <h1>Bus Mall Store</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a><span id="itemCount"></span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+      <section class="deck col-1">
+        <div class="card">
+          <header>
+            <h1>Your Cart</h1>
+          </header>
+          <div class="copy">
+              <ol>
+                <li>Click the "X" next to any item to remove it from your cart</li>
+              </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="deck col-1">
+        <div class="card">
+            <table id="cart">
+                <thead>
+                    <tr>
+                        <th>Remove</th>
+                        <th>Quantity</th>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+      </section>
+     <div $(".RemoveLink").click(function () {
+      // Get the id from the link 
+      var recordToDelete = $(this).attr("data-id");
+      if (recordToDelete != '') {
+          clearUpdateMessage();
+          // Perform the ajax post 
+          $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
+              function (data) {
+                  // Successful requests get here 
+                  // Update the page elements 
+                  //--if (data.ItemCount == 0) {
+                  $('#row-' + data. DeleteId).fadeOut('slow');
+                  //--} else {
+                  //--    $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                  //--}
+                  $('#cart-total').text(data.CartTotal);
+                  $('#update-message').text(data.Message);
+                  $('#cart-status').text('Cart (' + data.CartCount + ')');
+              });
+      }></div>   
+         
+    </main>
+
+    <footer>
+        <p>&copy;2018 Code Fellows 201d33</p>
+    </footer>
+
+    <script src='js/app.js'></script>
+    <script src='js/cart.js'></script>
+</body>
+
+</html>
