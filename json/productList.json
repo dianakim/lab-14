@@ -1,0 +1,32 @@
+{
+  "productList":[
+    {
+      "id": "0",
+      "imageFile": "img/sweep.jpg",
+      "title": "Super Awesome Product",
+      "description": "This is the most awesome super product ever.",
+      "price": "$100.00"
+    },
+    {
+      "id": "1",
+      "imageFile": "img/water-can.jpg",
+      "title": "The Awesome Book",
+      "description": "This is the best book ever. Must read it.",
+      "price": "$10.00"
+    },
+    {
+      "id": "2",
+      "imageFile": "img/shark.png",
+      "title": "Cheap Cell Phone",
+      "description": "This is the cheapest cell phone ever, and it works.",
+      "price": "$1.00"
+    },
+    {
+      "id": "3",
+      "imageFile": "img/scissors.jpg",
+      "title": "Amazing Toothpaste",
+      "description": "This toothpaste prevents cavities and stank breath",
+      "price": "$5.00"
+    }
+  ]
+}

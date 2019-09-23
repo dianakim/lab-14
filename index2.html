@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bus Mall Cart</title>
+    <link rel="stylesheet" href="css/shoppingCart.css">
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="title">Bus Mall Cart</div>
+      <div class="shoppingCart">
+        <span>Cart: </span><span id="itemCount">0</span>
+      </div>
+    </div>
+
+    <div class="productList"></div>
+
+    <script src="js/jsonLoader.js" charset="utf-8"></script>
+    <script src="js/shoppingCart.js" charset="utf-8"></script>
+    <script>
+
+      var shoppingCart = new ShoppingCart();
+      // Build a new shopping cart with a product list
+      shoppingCart.getProductList('json/productList.json');
+      shoppingCart.getCartItems();
+    </script>
+  </body>
+</html>
